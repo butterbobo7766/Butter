@@ -3258,7 +3258,7 @@ end
 while true do
   if gg["isVisible"](true) then COW = 1
     gg["setVisible"](false) end
-  gg["clearResults"]()
+    gg["clearResults"]()
   if COW == 1 then Main() --End
     gg["clearResults"]()
   end
