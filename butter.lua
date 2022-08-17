@@ -3227,6 +3227,10 @@ function exit() --exit
   if ex == nil then else
     if ex == 1 then
       gg["toast"](" 💘 Love You All 💘")
+      print("◍ ═════════ ◖◍◗ ══════════ ◍")
+      print("                               🐮BᴜΙ͠ᴛᴇʀ  ")
+      print("                             is a Stupid !!  ")
+      print("◍ ═════════ ◖◍◗ ══════════ ◍")
       gg["skipRestoreState"]()
       gg["setVisible"](true)
       os["exit"]()
