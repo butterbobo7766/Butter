@@ -3244,6 +3244,8 @@ function exit() --exit
       print("                             is a Stupid !!  ")
       print("◍ ═════════ ◖◍◗ ══════════ ◍")
       gg["skipRestoreState"]()
+      gg["clearResults"]()
+	    gg["clearList"]()
       gg["setVisible"](true)
       os["exit"]()
     end
