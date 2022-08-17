@@ -3245,7 +3245,7 @@ function exit() --exit
       print("◍ ═════════ ◖◍◗ ══════════ ◍")
       gg["skipRestoreState"]()
       gg["clearResults"]()
-	    gg["clearList"]()
+      gg["clearList"]()
       gg["setVisible"](true)
       os["exit"]()
     end
