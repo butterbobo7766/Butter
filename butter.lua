@@ -9,21 +9,19 @@ gg["setVisible"](false)
 ProgressBar = "║░░░░░░░░░░░░░░░║";for x = 1,15,1 do gg.sleep(200) ProgressBar = ProgressBar:gsub("░","▓",1);gg.toast(ProgressBar) end
 
 function setvalue(address,flags,value) local tt={} tt[1]={} tt[1].address=address tt[1].flags=flags tt[1].value=value gg.setValues(tt) end
-function patch(lib, offset, value, flags) local ranges = gg.getRangesList(lib) if #ranges == 0 then gg.toast("Error: ".. lib .." not found") else local a = {}
-a[1] = {} a[1].address = ranges[1].start + offset a[1].flags = flags a[1].value = value gg.setValues(a) end end
+local hex = {} function patch(lib, offset, value, flags) local ranges = gg.getRangesList(lib) if #ranges == 0 then gg.toast("Error: ".. lib .." not found") else local xy = {} xy[1] = {} xy[1].address = ranges[1].start + offset xy[1].flags = flags xy[1].value = value gg.setValues(xy) end end
 local HexPatches = {} function HexPatches.MemoryPatch(Lib, Offset, Edit, Type) local Ranges = gg.getRangesList(Lib) if #Ranges == 0 then gg.toast("Error: ".. Lib .." not found") else local v = {} v[1] = {} v[1].address = Ranges[1].start + Offset v[1].flags = Type v[1].value = Edit.."r" v[1].freeze = true gg.setValues(v) end end
 CA=gg.REGION_C_ALLOC VI=gg.REGION_VIDEO XA=gg.REGION_CODE_APP AN=gg.REGION_ANONYMOUS CD=gg.REGION_C_DATA BSS=gg.REGION_C_BSS EA=gg.editAll RL=gg.getRangesList SNR=gg.searchNumber CLEAR=gg.clearResults GET=gg.getResults SET=gg.setVisible REFINE=gg.refineNumber COUNT=gg.getResultCount RANGE=gg.setRanges XOR=gg.TYPE_XOR BYTE=gg.TYPE_BYTE FLOAT=gg.TYPE_FLOAT WORD=gg.TYPE_WORD DWORD=gg.TYPE_DWORD DOUBLE=gg.TYPE_DOUBLE QWORD=gg.TYPE_QWORD EQUAL=gg.SIGN_EQUAL
 function AxM(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast("🐮 ʀᴇsᴜʟᴛs ( "..#data.." ) ᴄʜᴀɴɢᴇ 🐮") local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) gg.toast("🐮 ʀᴇsᴜʟᴛs ( "..#t.." ) ᴄʜᴀɴɢᴇ 🐮") gg.addListItems(t) else gg.toast("🐮 ᴅᴀᴛᴀ ɴᴏᴛ ғᴏᴜɴᴅ 🐮", false) return false end else gg.toast("🐮 ᴅᴀᴛᴀ ɴᴏᴛ ғᴏᴜɴᴅ 🐮") return false end end
 function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast("🐮 ʀᴇsᴜʟᴛs ( "..#data.." ) ᴄʜᴀɴɢᴇ 🐮") local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) end end end
-function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] xgdj = qmxg[x]["freeze"] if xgdj == nil or xgdj == "" then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end
-function xqmnb(qmnb) gg.clearResults() gg.setVisible(false) gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) xxx=gg.getResultCount() if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then gg.toast(qmnb[2]["name"] .. " Found: "..xxx.." Edited: " .. xgsl .. "") else gg.toast(qmnb[2]["name"] .. " Failed") end end end gg.clearResults() end
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] xgdj = qmxg[x]["freeze"] if xgdj == nil or xgdj == "" then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end function xqmnb(qmnb) gg.clearResults() gg.setVisible(false) gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) xxx=gg.getResultCount() if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then gg.toast(qmnb[2]["name"] .. " Found: "..xxx.." Edited: " .. xgsl .. "") else gg.toast(qmnb[2]["name"] .. " Failed") end end end gg.clearResults() end
 
 EYT="💫 " ON="🟢 " OFF="⚫ " KFC="🟡 " BBQ="🔶 " MNO="❌ " turn0=OFF turn1=OFF turn2=OFF turn3=BBQ turn4=BBQ turn5=BBQ turn6=OFF turn7=OFF turn8=OFF turn9=OFF turn10=OFF turn11=OFF turn12=OFF turn13=OFF turn14=OFF turn15=OFF turn16=OFF turn17=OFF turn18=OFF turn19=OFF turn20=OFF turn21=OFF turn22=OFF turn23=OFF turn24=OFF turn25=OFF turn26=BBQ turn27=OFF turn28=OFF turn29=OFF turn30=OFF
 
 COW = 1
 function Main()
   MOMO = gg.choice({
-    "≿•━━━ ༺❀༻ ━━━•≾\n "..turn0.."[ (Tɪᴍɪ) ʟᴏɢᴏ Bʏᴘᴀss ] "..turn0.." \n.••[ ᴛɪᴍɪ ʟᴏɢᴏ 防閃 ]•• .\n ",
+    "≿•━━━ ༺❀༻ ━━━•≾\n "..turn0.."[ (Tɪᴍɪ) ʟᴏɢᴏ Bʏᴘᴀss ] "..turn0.." \n.••[ ᴛɪᴍɪ ʟᴏɢᴏ ]•• .\n ",
     ""..turn1.."[ Bʏᴘᴀss ɪɴ (Lᴏʙʙʏ) ] "..turn1.." \n.  • • [ 大廳防封 ]• • .\n≿•━━━ ༺❀༻ ━━━•≾ ",
     "\n🌸 [Lobby Menu]  🌸 \n🌸    [大廳功能]      🌸",
     "\n❄  ️[InGame Menu] ❄ ️\n❄   ️ [進場後功能]    ❄",
@@ -46,23 +44,23 @@ end
 
 function lobby()
   menu = gg["multiChoice"]({
-    ""..turn8.."[ᴇsᴘ ɴᴀᴍᴇ ʙʀ][ʙʀ 顯示人名]",--i
-    ""..turn9.."[ᴇsᴘ ɴᴀᴍᴇ ᴍᴘ][ᴍᴘ 顯示人名]",--j
-    ""..turn10.."[ᴡᴀʟʟʜᴀᴄᴋ][透視]",--k
-    ""..turn11.."[ᴀɪᴍʙᴏᴛ][自瞄]",--l
-    ""..turn25.."[ᴀɪᴍʙᴏᴛ sᴛʀᴏɴɢ][強自瞄++]",--m
-    ""..turn13.."[ғᴀsᴛsᴄᴏᴘᴇ][快開鏡]️",--n
-    ""..turn14.."[ᴍɪɴɪ ᴄʀᴏssʜᴀɪʀ][縮小準星]️",--o
-    ""..turn15.."[ɴᴏ ʀᴇᴄᴏɪʟ][減後座力]",--p
-    ""..turn16.."[ғᴀsᴛ ʀᴇʟᴏᴀᴅ][快速上彈]️",--q
-    ""..turn17.."[ɴᴏ sᴘʀᴇᴀᴅ][無散發]",--r
-    ""..turn18.."[ʟᴏɴɢ sʟɪᴅᴇ][長程滑剷]",--s
-    ""..turn19.."[ʙᴜʟʟᴇᴛ++][無限子彈]",--t
-    ""..turn27.."[ғᴀsᴛ sʜᴏᴏᴛ][高射速]",--v
-    ""..turn23.."[ᴍᴘ ɴɪɢʜᴛ ᴍᴏᴅᴇ][多人暗黑模式]️",--y
-    ""..turn22.."[ᴍᴘ ᴜᴀᴠ ʀᴀᴅᴀʀ][多人雷達長顯]",--uav
-    ""..turn30.."[ʜɪɢʜ ᴊᴜᴍᴘ][跳高++]",--jump
-    ""..turn28.."[ SHOW FPS ]",--fps
+    ""..turn8.."[ᴇsᴘ ɴᴀᴍᴇ ʙʀ][ʙʀ 顯示人名]", --i
+    ""..turn9.."[ᴇsᴘ ɴᴀᴍᴇ ᴍᴘ][ᴍᴘ 顯示人名]", --j
+    ""..turn10.."[ᴡᴀʟʟʜᴀᴄᴋ][透視]", --k
+    ""..turn11.."[ᴀɪᴍʙᴏᴛ][自瞄]", --l
+    ""..turn25.."[ᴀɪᴍʙᴏᴛ sᴛʀᴏɴɢ][自瞄+]", --m
+    ""..turn13.."[ғᴀsᴛsᴄᴏᴘᴇ][快開鏡]️", --n
+    ""..turn14.."[ᴍɪɴɪ ᴄʀᴏssʜᴀɪʀ][縮小準星]️", --o
+    ""..turn15.."[ɴᴏ ʀᴇᴄᴏɪʟ][減後座力]", --p
+    ""..turn16.."[ғᴀsᴛ ʀᴇʟᴏᴀᴅ][快速上彈]️", --q
+    ""..turn17.."[ɴᴏ sᴘʀᴇᴀᴅ][無散發]", --r
+    ""..turn18.."[ʟᴏɴɢ sʟɪᴅᴇ][長程滑剷]", --s
+    ""..turn19.."[ʙᴜʟʟᴇᴛ ᴍᴀx][無限子彈]", --t
+    ""..turn27.."[ғᴀsᴛ sʜᴏᴏᴛ][高射速]", --v
+    ""..turn23.."[ᴍᴘ ɴɪɢʜᴛ ᴍᴏᴅᴇ][多人暗黑模式]️", --y
+    ""..turn22.."[ᴍᴘ ᴜᴀᴠ ʀᴀᴅᴀʀ][多人雷達長顯]", --uav
+    ""..turn30.."[ʜɪɢʜ ᴊᴜᴍᴘ][跳高++]", --jump
+    ""..turn28.."[ SHOW FPS ]", --fps
     "   ↩️  Back  ↩️   ",
   }, nil, os["date"](" ʜᴀᴄᴋ ʙʏ 🐮BᴜΙ͠ᴛᴇʀ "))
   if menu == nil then Main()
@@ -109,15 +107,15 @@ end
 
 function game()
   BO = gg["multiChoice"]({
-    ""..turn29.."[ʙʀ ʙᴜʟʟᴇᴛ ᴛʀᴀᴄᴋ] ️\n.• [ 低^大範圍追蹤彈^低 ] •.",--bt
-    ""..turn20.."[ʜɪɢʜ ʙᴜʟʟᴇᴛ ᴛʀᴀᴄᴋ] ️\n.• [ 高^大範圍追蹤彈^高 ] •.",--u
-    ""..turn3.."[  ʙʟᴜᴇ ᴀɴᴛʜᴇɴᴀ  ] \n 『sɴᴀᴘᴅʀᴀɢᴏɴ ᴏɴʟʏ 』 \n        [  藍色天線  ]   ",--d
-    ""..turn4.."[ ᴍᴀɢɪᴄ ʙᴜʟʟᴇᴛ x? ] \n       [ 可調節魔術彈 ]    \n. • In.Every.Game • .",--e
-    ""..turn5.."[ ᴍᴀɢɪᴄ ʙᴜʟʟᴇᴛ ] \n       [ 魔術彈 ]    \n. • In.Every.Game • .",--f
-    ""..turn6.."[ sᴘᴇᴇᴅ x3 ][ 加速 x3 ]",--g
-    ""..turn7.."[ sᴘᴇᴇᴅ x? ][ 加速 x? ]",--h
-    ""..turn26.."🚦𝐑𝐄𝐃 𝐋𝐈𝐍𝐄 Menu🚦",--red
-    ""..turn30.." ʜɪɢʜ ᴊᴜᴍᴘ ",--jump
+    ""..turn29.."[ʟᴏᴡ ʙᴜʟʟᴇᴛ ᴛʀᴀᴄᴋ] ️\n.• [ 低^大範圍追蹤彈^低 ] •.", --bt
+    ""..turn20.."[ʜɪɢʜ ʙᴜʟʟᴇᴛ ᴛʀᴀᴄᴋ] ️\n.• [ 高^大範圍追蹤彈^高 ] •.", --u
+    ""..turn3.."[  ʙʟᴜᴇ ᴀɴᴛʜᴇɴᴀ  ] \n 『sɴᴀᴘᴅʀᴀɢᴏɴ ᴏɴʟʏ 』 \n        [  藍色天線  ]   ", --d
+    ""..turn4.."[ ᴍᴀɢɪᴄ ʙᴜʟʟᴇᴛ x? ] \n       [ 可調節魔術彈 ]    \n. • In.Every.Game • .", --e
+    ""..turn5.."[ ᴍᴀɢɪᴄ ʙᴜʟʟᴇᴛ ] \n       [ 魔術彈 ]    \n. • In.Every.Game • .", --f
+    ""..turn6.."[ sᴘᴇᴇᴅ x3 ][ 加速 x3 ]", --g
+    ""..turn7.."[ sᴘᴇᴇᴅ x? ][ 加速 x? ]", --h
+    ""..turn26.."🚦𝐑𝐄𝐃 𝐋𝐈𝐍𝐄 Menu🚦", --red
+    ""..turn30.." ʜɪɢʜ ᴊᴜᴍᴘ ", --jump
     "   ↩️  Back  ↩️   ",
   }, nil, os["date"](" ʜᴀᴄᴋ ʙʏ 🐮BᴜΙ͠ᴛᴇʀ "))
   if BO == nil then Main()
@@ -148,12 +146,6 @@ end
 
 
 function a1()
-  so = gg.getRangesList('libanogs.so')[1].start
-  py = 0x30a34
-  setvalue(so + py, 4, -476053504)
-  so = gg.getRangesList('libanogs.so')[1].start
-  py = 0x30a38
-  setvalue(so + py, 4, -516948194)
   so = gg.getRangesList('libanogs.so')[1].start
   py = 0x308c4
   setvalue(so + py, 4, 0)
@@ -343,8 +335,6 @@ Var #B8A3FC60|b8a3fc60|10|0|0|0|0|0|r-xp|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/co
   fileData = gg.EXT_STORAGE .. "/[#logo#].dat"
   io.output(fileData):write(a):close()
   gg.loadList(fileData, gg.LOAD_APPEND)
-  os.remove("/storage/self/primary/[#logo#].dat")
-  os.remove("/storage/emulated/0/[#logo#].dat")
   gg.sleep(200)
   r = gg.getListItems()
   gg.loadResults(r)
@@ -360,6 +350,7 @@ Var #B8A3FC60|b8a3fc60|10|0|0|0|0|0|r-xp|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/co
   t = nil
   gg.clearList()
   gg.clearResults()
+  os.remove("/storage/emulated/0/[#logo#].dat")
   gg.sleep(200)
 
   b = [[1946
@@ -419,8 +410,6 @@ Var #BEDAAAFC|bedaaafc|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com
   fileData = gg.EXT_STORAGE .. "/[##logo##].dat"
   io.output(fileData):write(b):close()
   gg.loadList(fileData, gg.LOAD_APPEND)
-  os.remove("/storage/self/primary/[##logo##].dat")
-  os.remove("/storage/emulated/0/[##logo##].dat")
   gg.sleep(200)
   r = gg.getListItems()
   gg.loadResults(r)
@@ -436,6 +425,7 @@ Var #BEDAAAFC|bedaaafc|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com
   t = nil
   gg.clearList()
   gg.clearResults()
+  os.remove("/storage/emulated/0/[##logo##].dat")
   gg.sleep(200)
 
   c = [[30676
@@ -491,8 +481,6 @@ Var #BBBC97AC|bbbc97ac|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com
   fileData = gg.EXT_STORAGE .. "/[#logo].dat"
   io.output(fileData):write(c):close()
   gg.loadList(fileData, gg.LOAD_APPEND)
-  os.remove("/storage/self/primary/[#logo].dat")
-  os.remove("/storage/emulated/0/[#logo].dat")
   gg.sleep(200)
   r = gg.getListItems()
   gg.loadResults(r)
@@ -508,6 +496,7 @@ Var #BBBC97AC|bbbc97ac|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com
   t = nil
   gg.clearList()
   gg.clearResults()
+  os.remove("/storage/emulated/0/[#logo].dat")
   turn0 = EYT
   gg.alert(" 💫 ᴛɪᴍɪ ʟᴏɢᴏ ʙʏᴘᴀss ᴀᴄᴛɪᴠᴇ✔ 💫 ")
 end
@@ -515,9 +504,15 @@ end
 function b1()
   gg.setRanges(gg.REGION_CODE_APP)
   gg.searchNumber("1,849,753,701;1,262,769,007;1,953,066,569;1,869,496,576;1,145,783,379;1,699,900,517;1,953,656,688;1,635,017,028;1,752,461,312;1,684,104,562;2,036,689,759;1,818,584,159;6,648,933;1,399,811,649;1,699,171,140;1,885,688,436;100000~1999999999::16384", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
-  gg.getResults(50000)
+  gg.getResults(50000, nil, nil, nil, nil, nil, nil, nil, nil)
   gg.editAll("0", gg.TYPE_DWORD)
   gg.clearResults()
+  so = gg.getRangesList('libanogs.so')[1].start
+  py = 0x30a34
+  setvalue(so + py, 4, -476053504)
+  so = gg.getRangesList('libanogs.so')[1].start
+  py = 0x30a38
+  setvalue(so + py, 4, -516948194)
   turn1 = EYT
   gg.alert(" 💫 Lᴏʙʙʏ ʙʏᴘᴀss ᴀᴄᴛɪᴠᴇ✔ 💫 ")
 end
@@ -654,21 +649,26 @@ end
 
 function j1()
   so = gg.getRangesList('libil2cpp.so')[1].start
-  py = 0x13240a0
-  setvalue(so + py, 10, 0xe3500000)
+  py = 0x179748c
+  setvalue(so + py, 4, -476053503)
+  so = gg.getRangesList('libil2cpp.so')[1].start
+  py = 0x1797490
+  setvalue(so + py, 4, -516948194)
   turn9 = ON
   gg.toast("🟢️ ᴇsᴘ ɴᴀᴍᴇ ᴍᴘ ᴀᴄᴛɪᴠᴇ✔")
 end
 
 function k1()
-  patch('libil2cpp.so', 0x1938954, "0", 4)
+  so = gg.getRangesList('libil2cpp.so')[1].start
+  py = 0x1938954
+  setvalue(so + py, 4, 0)
   turn10 = ON
   gg.toast("🟢 ᴡᴀʟʟʜᴀᴄᴋ ᴀᴄᴛɪᴠᴇ✔")
 end
 
 function l1()
   so = gg.getRangesList('libil2cpp.so')[1].start
-  local py = 0X6CBF6C0
+  py = 0X6CBF6C0
   setvalue(so + py, 16, 0)
   turn11 = ON
   gg.toast("🟢 ᴀɪᴍʙᴏᴛ ᴀᴄᴛɪᴠᴇ✔")
@@ -748,7 +748,7 @@ function t1()
   py = 0X1BE7DE0
   setvalue(so + py, 16, -2.02910209e20)
   turn19 = ON
-  gg.toast("🟢 ʙᴜʟʟᴇᴛ ᴀᴄᴛɪᴠᴇ✔")
+  gg.toast("🟢 ʙᴜʟʟᴇᴛ ᴍᴀx ᴀᴄᴛɪᴠᴇ✔")
 end
 
 function u1()
@@ -773,7 +773,7 @@ function bt()
   py = 0x22AFA00
   setvalue(so + py, 16, 0)
   turn29 = ON
-  gg.toast("🟢 ʙᴜʟʟᴇᴛ ᴛʀᴀᴄᴋ ᴀᴄᴛɪᴠᴇ✔")
+  gg.toast("🟢 ʟᴏᴡ ʙᴜʟʟᴇᴛ ᴛʀᴀᴄᴋ ᴀᴄᴛɪᴠᴇ✔")
 end
 
 function v1()
@@ -810,7 +810,9 @@ function uav()
 end
 
 function fps()
-  patch('libil2cpp.so', 0x2368D4C, "0", 4)
+  so = gg.getRangesList('libil2cpp.so')[1].start
+  local py = 0x2368D4C
+  setvalue(so + py, 16, -3.78023548e28)
   turn28 = ON
   gg.toast(" 🟢 FPS ᴀᴄᴛɪᴠᴇ✔ ")
 end
@@ -859,9 +861,29 @@ function exit()
   exx = gg["alert"](" \n  EXIT SCRIPT • 離開 ", "💡 Yes 💡", " ↩️ Back ↩️", nil)
   if exx == nil then Main() else
     if exx == 1 then
-      print("╭════••✧๑♡๑✧••════╮")
-      print("                 ʜᴀᴄᴋ ʙʏ 🐮BᴜΙ͠ᴛᴇʀ                       ")
-      print("╰════••✧๑♡๑✧••════╯")
+	  print([[
+╔══════════════════╗
+	⠀⠀⠀⣴⣾⣿⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+	⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   
+	⠀⠀⠈⢿⣿⣿⣿⣿⠏⠀ʜᴀᴄᴋ ʙʏ 🐮BᴜΙ͠ᴛᴇʀ  
+	⠀⠀⠀⠀⠈⣉⣩⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+	⠀⠀⠀⠀⣼⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+	⠀⠀⢀⣼⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+	⠀⢀⣾⣿⣿⣿⣿⣿⣿⣷⠀   ⠀⠀⠀⠀⠀⠀⠀⠀      
+	⢠⣾⣿⣿⠉⣿⣿⣿⣿⣿⡄⠀⢀⣠⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀
+	⠀⠙⣿⣿⣧⣿⣿⣿⣿⣿⡇⢠⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀
+	⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣷⠸⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀
+	⠀⠀⠀⠀⠘⠿⢿⣿⣿⣿⣿⡄⠙⠻⠿⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀
+	⠀⠀⠀⠀⠀⠀⠀⡟⣩⣝⢿⠀⠀⣠⣶⣶⣦⡀⠀⠀⠀⠀⠀⠀⠀
+	⠀⠀⠀⠀⠀⠀⠀⣷⡝⣿⣦⣠⣾⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀
+	⠀⠀⠀⠀⠀⠀⠀⣿⣿⣮⢻⣿⠟⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀
+	⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡇⠀⠀⠻⠿⠻⣿⣿⣿⣿⣦⡀⠀⠀⠀
+	⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⠇⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⡆⠀⠀
+	⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⠇⠀⠀
+	⠀⠀⠀⠀⠀⠀⢸⣿⣿⡿⠀⠀⠀⢀⣴⣿⣿⣿⣿⣟⣋⣁⣀⣀⠀
+	⠀⠀⠀⠀⠀⠀⠹⣿⣿⠇⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ 
+╚══════════════════╝
+]])
       gg["skipRestoreState"]()
       gg["clearResults"]()
       gg["clearList"]()
