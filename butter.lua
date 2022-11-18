@@ -8,7 +8,7 @@ if password == 1 then else
 gg["setVisible"](false)
 ProgressBar = "║░░░░░░░░░░░░░░░║";for x = 1,15,1 do gg.sleep(200) ProgressBar = ProgressBar:gsub("░","▓",1);gg.toast(ProgressBar) end
 
-if gg.getTargetPackage() ~= "com.garena.game.codm" then gg.alert(' Please Open Your Game First \n 請先打開遊戲 ') gg.clearList() return os.exit() end 
+
 for i in ipairs({}) do local xxx = {nil, nil} xxx.TYPE_FLOAT = {nil,nil} if xxx ~= nil then xxx.multiChoice = xxx.os.exit() end end for i in ipairs({}) do local xxx = {nil, nil} if xxx ~= nil then xxx.searchNumber = xxx.TYPE_FLOAT() end end
 function setvalue(address, flags, value) local tt = {} tt[1] = {} tt[1].address = address tt[1].flags = flags tt[1].value = value gg.setValues(tt) end
 local HexPatches = {} function HexPatches.MemoryPatch(Lib, Offset, Edit, Type) local Ranges = gg.getRangesList(Lib) local v = {} v[1] = {} v[1].address = Ranges[1].start + Offset v[1].flags = Type v[1].value = Edit.."r" v[1].freeze = true gg.setValues(v) end
@@ -338,116 +338,6 @@ Var #B627FBFC|b627fbfc|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgr
 Var #B627FC08|b627fc08|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2a8c08
 Var #B627FC54|b627fc54|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2a8c54
 Var #B627FC60|b627fc60|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2a8c60
-Var #A90C206C|a90c206c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|6c 
-Var #A90C42B4|a90c42b4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22b4 
-Var #A92E8004|a92e8004|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226004 
-Var #A92E8010|a92e8010|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226010 
-Var #A92E8018|a92e8018|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226018 
-Var #A92E8040|a92e8040|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226040 
-Var #A92E8048|a92e8048|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226048 
-Var #A92E8058|a92e8058|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226058 
-Var #A92E8064|a92e8064|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226064 
-Var #A92E8068|a92e8068|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226068 
-Var #A92E806C|a92e806c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22606c 
-Var #A92E8074|a92e8074|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226074 
-Var #A92E8078|a92e8078|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226078 
-Var #A92E807C|a92e807c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22607c 
-Var #A92E8080|a92e8080|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226080 
-Var #A92E8088|a92e8088|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226088 
-Var #A92E808C|a92e808c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22608c 
-Var #A92E80B0|a92e80b0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260b0 
-Var #A92E80B4|a92e80b4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260b4 
-Var #A92E80BC|a92e80bc|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260bc 
-Var #A92E80C8|a92e80c8|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260c8 
-Var #A92E80CC|a92e80cc|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260cc 
-Var #A92E80D0|a92e80d0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260d0 
-Var #A92E80D8|a92e80d8|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260d8 
-Var #A92E80E4|a92e80e4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260e4 
-Var #A92E80F0|a92e80f0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260f0
-Var #A92E80F4|a92e80f4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260f4 
-Var #A92E80FC|a92e80fc|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2260fc 
-Var #A92E8100|a92e8100|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226100 
-Var #A92E8104|a92e8104|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226104 
-Var #A92E810C|a92e810c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22610c 
-Var #A92E8118|a92e8118|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226118 
-Var #A92E8124|a92e8124|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226124 
-Var #A92E812C|a92e812c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22612c 
-Var #A92E8138|a92e8138|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226138 
-Var #A92E813C|a92e813c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22613c 
-Var #A92E8148|a92e8148|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226148 
-Var #A92E814C|a92e814c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|22614c 
-Var #A92E8150|a92e8150|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226150 
-Var #A92E8158|a92e8158|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226158 
-Var #A92E8194|a92e8194|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|226194 
-Var #A92E81A4|a92e81a4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2261a4 
-Var #A92E81B0|a92e81b0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2261b0 
-Var #A92E81C0|a92e81c0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2261c0 
-Var #A9314054|a9314054|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|252054 
-Var #A9314334|a9314334|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|252334 
-Var #A93287B4|a93287b4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2667b4 
-Var #A93439AC|a93439ac|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|2819ac 
-Var #A942C6C0|a942c6c0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36a6c0 
-Var #A942C6D8|a942c6d8|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36a6d8 
-Var #A942CA30|a942ca30|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36aa30 
-Var #A942CA90|a942ca90|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36aa90
-Var #A942CB64|a942cb64|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ab64 
-Var #A942CB68|a942cb68|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ab68 
-Var #A942CB6C|a942cb6c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ab6c 
-Var #A942CB70|a942cb70|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ab70 
-Var #A942CB90|a942cb90|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ab90 
-Var #A942CC28|a942cc28|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ac28 
-Var #A942CC2C|a942cc2c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ac2c 
-Var #A942D374|a942d374|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36b374 
-Var #A942D5D4|a942d5d4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36b5d4 
-Var #A942D774|a942d774|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36b774 
-Var #A942DB74|a942db74|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36bb74 
-Var #A942DDD4|a942ddd4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36bdd4 
-Var #A942DF74|a942df74|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36bf74 
-Var #A942E094|a942e094|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36c094 
-Var #A942E9E8|a942e9e8|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36c9e8 
-Var #A942E9FC|a942e9fc|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36c9fc 
-Var #A942EA24|a942ea24|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36ca24 
-Var #A942EAAC|a942eaac|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36caac 
-Var #A942F080|a942f080|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d080 
-Var #A942F0B0|a942f0b0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d0b0 
-Var #A942F184|a942f184|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d184 
-Var #A942F188|a942f188|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d188 
-Var #A942F18C|a942f18c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d18c 
-Var #A942F190|a942f190|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d190 
-Var #A942F1B0|a942f1b0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d1b0 
-Var #A942F248|a942f248|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d248
-Var #A942F24C|a942f24c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d24c 
-Var #A942F994|a942f994|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36d994 
-Var #A942FBF4|a942fbf4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36dbf4 
-Var #A942FD94|a942fd94|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36dd94 
-Var #A9430194|a9430194|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e194 
-Var #A94303F4|a94303f4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e3f4 
-Var #A9430594|a9430594|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e594 
-Var #A94306B4|a94306b4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e6b4 
-Var #A94307F0|a94307f0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e7f0 
-Var #A94307F4|a94307f4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e7f4 
-Var #A94307F8|a94307f8|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e7f8 
-Var #A94307FC|a94307fc|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e7fc 
-Var #A9430834|a9430834|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e834 
-Var #A9430838|a9430838|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36e838 
-Var #A9431290|a9431290|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36f290 
-Var #A9431754|a9431754|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|36f754 
-Var #A9434CD4|a9434cd4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|372cd4 
-Var #A9434CFC|a9434cfc|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|372cfc 
-Var #A9435380|a9435380|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|373380 
-Var #A94354C0|a94354c0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|3734c0 
-Var #A94355C4|a94355c4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|3735c4 
-Var #A944B5A8|a944b5a8|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|3895a8 
-Var #A944B5E8|a944b5e8|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|3895e8 
-Var #A944B638|a944b638|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|389638 
-Var #A944B658|a944b658|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|389658 
-Var #A94551C0|a94551c0|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|3931c0
-Var #A94563D4|a94563d4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|3943d4 
-Var #A9456CE4|a9456ce4|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|394ce4 
-Var #A9456D70|a9456d70|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|394d70 
-Var #A9456D8C|a9456d8c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|394d8c 
-Var #A9457E1C|a9457e1c|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|395e1c 
-Var #A94582EC|a94582ec|4|0|0|0|0|0|r-xp|/data/app/com.garena.game.codm-GQQgsaLgroqOoSLuO6A-Gw==/lib/arm/libanogs.so|3962ec
 ]]
   fileData = gg.EXT_STORAGE .. "/Android/[#logo#].dat"
   io.output(fileData):write(a):close()
@@ -869,8 +759,9 @@ function i1()
 end
 
 function j1()
-  HexPatches.MemoryPatch('libil2cpp.so', 0x17BD3F4, "0160A0E3", 4)
-  HexPatches.MemoryPatch('libil2cpp.so', 0x1209E20, "000051E3", 4)
+  so = gg.getRangesList('libil2cpp.so')[1].start
+  py = 0x13240a0
+  setvalue(so + py, 10, 0xe3500000)
   turn9 = ON
   gg.toast("🟢️ ᴇsᴘ ɴᴀᴍᴇ ᴍᴘ ᴀᴄᴛɪᴠᴇ✔")
 end
