@@ -16,12 +16,13 @@ function AxM(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.sear
 function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast("🐮 ʀᴇsᴜʟᴛs ( "..#data.." ) ᴄʜᴀɴɢᴇ 🐮") local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) end end end
 function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] xgdj = qmxg[x]["freeze"] if xgdj == nil or xgdj == "" then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end function xqmnb(qmnb) gg.clearResults() gg.setVisible(false) gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) xxx=gg.getResultCount() if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then gg.toast(qmnb[2]["name"] .. " Found: "..xxx.." Edited: " .. xgsl .. "") else gg.toast(qmnb[2]["name"] .. " Failed") end end end gg.clearResults() end
 
-EYT="💫 " ON="🟢 " OFF="⚫ " KFC="🟡 " BBQ="🔶 " MNO="❌ " turn0=OFF turn1=OFF turn2=OFF turn3=BBQ turn4=BBQ turn5=BBQ turn6=OFF turn7=OFF turn8=OFF turn9=OFF turn10=OFF turn11=OFF turn12=OFF turn13=OFF turn14=OFF turn15=OFF turn16=OFF turn17=OFF turn18=OFF turn19=OFF turn20=OFF turn21=OFF turn22=OFF turn23=OFF turn24=OFF turn25=OFF turn26=BBQ turn27=OFF turn28=OFF turn29=OFF turn30=OFF
+EYT="💫 " ON="🟢 " OFF="⚫ " KFC="🟡 " BBQ="🔶 " MNO="❌ " turn0=OFF turn1=OFF turn2=OFF turn3=BBQ turn4=BBQ turn5=BBQ turn6=OFF turn7=OFF turn8=OFF turn9=OFF turn10=OFF turn11=OFF turn12=OFF turn13=OFF turn14=OFF turn15=OFF turn16=OFF turn17=OFF turn18=OFF turn19=OFF turn20=OFF turn21=OFF turn22=OFF turn23=OFF turn24=OFF turn25=OFF turn26=BBQ turn27=OFF turn28=OFF turn29=OFF turn30=OFF turn31=OFF
 
 COW = 1
 function Main()
   MOMO = gg.choice({
-    "≿•━━━ ༺❀༻ ━━━•≾\n "..turn0.."[ (Tɪᴍɪ) ʟᴏɢᴏ Bʏᴘᴀss ] "..turn0.." \n.••[ ᴛɪᴍɪ ʟᴏɢᴏ ]•• .\n ",
+    "≿•━━━ ༺❀༻ ━━━•≾\n "..turn0.."[ ʟᴏɢᴏ Bʏᴘᴀss ] "..turn0.." \n.••[ ʟᴏɢᴏ ]•• .\n ",
+    ""..turn2.." [ Fix Crash ] "..turn2.."\n",
     ""..turn1.."[ Bʏᴘᴀss ɪɴ (Lᴏʙʙʏ) ] "..turn1.." \n.  • • [ 大廳防封 ]• • .\n≿•━━━ ༺❀༻ ━━━•≾ ",
     "\n🌸 [Lobby Menu]  🌸 \n🌸    [大廳功能]      🌸",
     "\n❄  ️[InGame Menu] ❄ ️\n❄   ️ [進場後功能]    ❄",
@@ -33,11 +34,13 @@ function Main()
   end
   if MOMO == 2 then b1()
   end
-  if MOMO == 3 then lobby()
+  if MOMO == 3 then c1()
   end
-  if MOMO == 4 then game()
+  if MOMO == 4 then lobby()
   end
-  if MOMO == 5 then exit()
+  if MOMO == 5 then game()
+  end
+  if MOMO == 6 then exit()
   end
  COW = -1
 end
@@ -55,6 +58,7 @@ function lobby()
     ""..turn16.."[ғᴀsᴛ ʀᴇʟᴏᴀᴅ][快速上彈]️", --q
     ""..turn17.."[ɴᴏ sᴘʀᴇᴀᴅ][無散發]", --r
     ""..turn18.."[ʟᴏɴɢ sʟɪᴅᴇ][長程滑剷]", --s
+    ""..turn31.."[ʙʀ ʙᴜғғ ᴅᴀᴍᴀɢᴇ++][生存^高傷害+]", --buff
     ""..turn19.."[ʙᴜʟʟᴇᴛ ᴍᴀx][無限子彈]", --t
     ""..turn27.."[ғᴀsᴛ sʜᴏᴏᴛ][高射速]", --v
     ""..turn23.."[ᴍᴘ ɴɪɢʜᴛ ᴍᴏᴅᴇ][多人暗黑模式]️", --y
@@ -87,19 +91,21 @@ function lobby()
     end
     if menu[11] == true then s1()
     end
-    if menu[12] == true then t1()
+    if menu[12] == true then buff()
     end
-    if menu[13] == true then v1()
+    if menu[13] == true then t1()
     end
-    if menu[14] == true then y1()
+    if menu[14] == true then v1()
     end
-    if menu[15] == true then uav()
+    if menu[15] == true then y1()
     end
-    if menu[16] == true then jump()
+    if menu[16] == true then uav()
     end
-    if menu[17] == true then fps()
+    if menu[17] == true then jump()
     end
-    if menu[18] == true then Main()
+    if menu[18] == true then fps()
+    end
+    if menu[19] == true then Main()
     end
   end
  COW = -1
@@ -146,17 +152,6 @@ end
 
 
 function a1()
-  so = gg.getRangesList('libanogs.so')[1].start
-  py = 0x308c4
-  setvalue(so + py, 4, 0)
-  so = gg.getRangesList('libanogs.so')[1].start
-  py = 0x308c8
-  setvalue(so + py, 4, 0)
-  so = gg.getRangesList('libanogs.so')[1].start
-  py = 0x308cc
-  setvalue(so + py, 4, 0)
-  gg.clearResults()
-  gg.sleep(200)
 
   a = [[12616
 Var #B87C78C4|b87c78c4|10|0|0|0|0|0|r-xp|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libanogs.so|308c4
@@ -332,7 +327,7 @@ Var #B8A3FC08|b8a3fc08|10|0|0|0|0|0|r-xp|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/co
 Var #B8A3FC54|b8a3fc54|10|0|0|0|0|0|r-xp|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libanogs.so|2a8c54
 Var #B8A3FC60|b8a3fc60|10|0|0|0|0|0|r-xp|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libanogs.so|2a8c60
 ]]
-  fileData = gg.EXT_STORAGE .. "/[#logo#].dat"
+  fileData = gg.EXT_STORAGE .. "/[#a#].dat"
   io.output(fileData):write(a):close()
   gg.loadList(fileData, gg.LOAD_APPEND)
   gg.sleep(200)
@@ -350,9 +345,18 @@ Var #B8A3FC60|b8a3fc60|10|0|0|0|0|0|r-xp|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/co
   t = nil
   gg.clearList()
   gg.clearResults()
-  os.remove("/storage/emulated/0/[#logo#].dat")
-  gg.sleep(200)
+  so = gg.getRangesList('libanogs.so')[1].start
+  py = 0x30a34
+  setvalue(so + py, 4, -476053504)
+  so = gg.getRangesList('libanogs.so')[1].start
+  py = 0x30a38
+  setvalue(so + py, 4, -516948194)
+  gg.clearResults()
+  turn0 = EYT
+  gg.alert(" 💫 ʟᴏɢᴏ ʙʏᴘᴀss ᴀᴄᴛɪᴠᴇ✔ 💫 ")
+end
 
+function b1()
   b = [[1946
 Var #BEDAA708|bedaa708|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libanogs.so|35708
 Var #BEDAA70C|bedaa70c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libanogs.so|3570c
@@ -407,7 +411,7 @@ Var #BEDAAAF8|bedaaaf8|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com
 Var #BEDAAAFC|bedaaafc|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libanogs.so|35afc
 
 ]]
-  fileData = gg.EXT_STORAGE .. "/[##logo##].dat"
+  fileData = gg.EXT_STORAGE .. "/[#b#].dat"
   io.output(fileData):write(b):close()
   gg.loadList(fileData, gg.LOAD_APPEND)
   gg.sleep(200)
@@ -416,103 +420,34 @@ Var #BEDAAAFC|bedaaafc|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com
   revert = gg.getResults(10000, nil, nil, nil, nil, nil, nil, nil, nil)
   local t = gg.getResults(10000, nil, nil, nil, nil, nil, nil, nil, nil)
   for i, v in ipairs(t) do
-    if v.flags == gg.TYPE_DWORD then
-      v.value = "0"
-      v.freeze = true
-    end
+	if v.flags == gg.TYPE_DWORD then
+		v.value = "0"
+		v.freeze = true
+	end
   end
   gg.addListItems(t)
   t = nil
   gg.clearList()
   gg.clearResults()
-  os.remove("/storage/emulated/0/[##logo##].dat")
-  gg.sleep(200)
-
-  c = [[30676
-Var #BBBC8658|bbbc8658|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|3658
-Var #BBBC8660|bbbc8660|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|3660
-Var #BBBC90D8|bbbc90d8|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|40d8
-Var #BBBC90DC|bbbc90dc|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|40dc
-Var #BBBC961C|bbbc961c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|461c
-Var #BBBC9620|bbbc9620|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4620
-Var #BBBC9654|bbbc9654|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4654
-Var #BBBC9658|bbbc9658|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4658
-Var #BBBC965C|bbbc965c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|465c
-Var #BBBC9660|bbbc9660|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4660
-Var #BBBC9664|bbbc9664|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4664
-Var #BBBC9668|bbbc9668|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4668
-Var #BBBC966C|bbbc966c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|466c
-Var #BBBC9670|bbbc9670|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4670
-Var #BBBC9674|bbbc9674|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4674
-Var #BBBC9678|bbbc9678|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4678
-Var #BBBC967C|bbbc967c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|467c
-Var #BBBC9680|bbbc9680|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4680
-Var #BBBC9684|bbbc9684|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4684
-Var #BBBC9688|bbbc9688|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4688
-Var #BBBC968C|bbbc968c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|468c
-Var #BBBC9690|bbbc9690|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4690
-Var #BBBC9694|bbbc9694|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4694
-Var #BBBC9698|bbbc9698|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4698
-Var #BBBC969C|bbbc969c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|469c
-Var #BBBC96A0|bbbc96a0|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|46a0
-Var #BBBC96A4|bbbc96a4|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|46a4
-Var #BBBC96A8|bbbc96a8|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|46a8
-Var #BBBC96AC|bbbc96ac|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|46ac
-Var #BBBC9754|bbbc9754|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4754
-Var #BBBC9758|bbbc9758|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4758
-Var #BBBC9764|bbbc9764|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4764
-Var #BBBC9768|bbbc9768|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4768
-Var #BBBC976C|bbbc976c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|476c
-Var #BBBC9770|bbbc9770|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4770
-Var #BBBC9774|bbbc9774|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4774
-Var #BBBC9780|bbbc9780|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4780
-Var #BBBC9784|bbbc9784|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4784
-Var #BBBC9788|bbbc9788|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4788
-Var #BBBC978C|bbbc978c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|478c
-Var #BBBC9790|bbbc9790|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4790
-Var #BBBC9794|bbbc9794|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4794
-Var #BBBC9798|bbbc9798|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|4798
-Var #BBBC979C|bbbc979c|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|479c
-Var #BBBC97A0|bbbc97a0|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|47a0
-Var #BBBC97A4|bbbc97a4|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|47a4
-Var #BBBC97A8|bbbc97a8|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|47a8
-Var #BBBC97AC|bbbc97ac|4|0|0|0|0|0|rw-p|/data/app/~~Yikbh_pX7nuJ1cyO88HEIg==/com.garena.game.codm-OKpx1ZPO739jl4OFMr-byA==/lib/arm/libCrashSight.so:bss|47ac
-]]
-  fileData = gg.EXT_STORAGE .. "/[#logo].dat"
-  io.output(fileData):write(c):close()
-  gg.loadList(fileData, gg.LOAD_APPEND)
-  gg.sleep(200)
-  r = gg.getListItems()
-  gg.loadResults(r)
-  revert = gg.getResults(10000, nil, nil, nil, nil, nil, nil, nil, nil)
-  local t = gg.getResults(10000, nil, nil, nil, nil, nil, nil, nil, nil)
-  for i, v in ipairs(t) do
-    if v.flags == gg.TYPE_DWORD then
-      v.value = "0"
-      v.freeze = true
-    end
-  end
-  gg.addListItems(t)
-  t = nil
-  gg.clearList()
-  gg.clearResults()
-  os.remove("/storage/emulated/0/[#logo].dat")
-  turn0 = EYT
-  gg.alert(" 💫 ᴛɪᴍɪ ʟᴏɢᴏ ʙʏᴘᴀss ᴀᴄᴛɪᴠᴇ✔ 💫 ")
+  so = gg.getRangesList('libanogs.so')[1].start
+  py = 0x308c4
+  setvalue(so + py, 4, 0)
+  so = gg.getRangesList('libanogs.so')[1].start
+  py = 0x308c8
+  setvalue(so + py, 4, 0)
+  so = gg.getRangesList('libanogs.so')[1].start
+  py = 0x308cc
+  setvalue(so + py, 4, 0)
+  turn2 = EYT
+  gg.alert(" 💫 ʙʏᴘᴀss ᴀᴄᴛɪᴠᴇ✔ 💫 ")
 end
 
-function b1()
+function c1()
   gg.setRanges(gg.REGION_CODE_APP)
   gg.searchNumber("1,849,753,701;1,262,769,007;1,953,066,569;1,869,496,576;1,145,783,379;1,699,900,517;1,953,656,688;1,635,017,028;1,752,461,312;1,684,104,562;2,036,689,759;1,818,584,159;6,648,933;1,399,811,649;1,699,171,140;1,885,688,436;100000~1999999999::16384", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
   gg.getResults(50000, nil, nil, nil, nil, nil, nil, nil, nil)
   gg.editAll("0", gg.TYPE_DWORD)
   gg.clearResults()
-  so = gg.getRangesList('libanogs.so')[1].start
-  py = 0x30a34
-  setvalue(so + py, 4, -476053504)
-  so = gg.getRangesList('libanogs.so')[1].start
-  py = 0x30a38
-  setvalue(so + py, 4, -516948194)
   turn1 = EYT
   gg.alert(" 💫 Lᴏʙʙʏ ʙʏᴘᴀss ᴀᴄᴛɪᴠᴇ✔ 💫 ")
 end
@@ -854,6 +789,29 @@ function jump()
   gg.clearResults()
   turn30 = ON
   gg.alert(" 🟢 ʜɪɢʜ ᴊᴜᴍᴘ ᴀᴄᴛɪᴠᴇ✔ ")
+end
+
+function buff()
+local HexPatches = {}
+function HexPatches.Optimal(Lib, Offset, Edit, Type)
+local Ranges = gg.getRangesList(Lib)
+v = {}
+v[1] = {}
+v[1].flags = Type
+v[1].address = Ranges[1].start + Offset
+v[1].value = Edit
+v[1].freeze = true
+gg.setValues(v)
+end
+
+HexPatches.Optimal("libunity.so", 0xB2FC34, "h 00 00 00 00", 4)
+HexPatches.Optimal("libunity.so", 0xB2FC38, "h 00 00 00 00", 4)
+HexPatches.Optimal("libunity.so", 0xB2FC3C, "h 00 00 00 00", 4)
+HexPatches.Optimal("libunity.so", 0xB2FC54, "h 00 00 00 00", 4)
+HexPatches.Optimal("libunity.so", 0xB2FC58, "h 00 00 00 00", 4)
+HexPatches.Optimal("libunity.so", 0xB2FC5C, "h 00 00 00 00", 4)
+gg.toast("BUFFDAMAGE")
+turn31 = ON
 end
 
 
