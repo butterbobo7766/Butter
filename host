@@ -1,4 +1,4 @@
-### Anti-Cheat Start ###
+###  Anti-Cheat Start  ###
 ###   By ButterCow   ###
 ###       2022        ###
 ### https://raw.githubusercontent.com/butterbobo7766/Cow/Butter/host
@@ -24621,7 +24621,7 @@ ff02::3 ip6-allhosts
 127.0.0.53 101.32.143.171
 127.0.0.53 101.32.143.64
 127.0.0.53 129.226.2.37
-RecordDnsCODGlobal
+## RecordDnsCODGlobal
 127.0.0.7 52.117.213.113
 127.0.0.7 101.32.82.126
 127.0.0.7 124.156.38.39
@@ -24636,18 +24636,18 @@ RecordDnsCODGlobal
 127.0.0.7 170.106.0.205
 127.0.0.7 162.62.17.224
 127.0.0.7 159.138.117.151
-127.0.0.7 119.28.244.173 #Speed
+127.0.0.7 119.28.244.173 ## Speed ##
 127.0.0.7 170.106.134.244
 127.0.0.7 49.51.65.170
 127.0.0.7 150.109.197.17
 127.0.0.7 49.51.65.219
 
-#IntlMtp
-127.0.0.53 intl.cloud.tencent.com
-127.0.0.53 intl.mtp.tencent.com
-127.0.0.53 mtp@tencent.com
+## IntlMtp ##
+0.0.0.1 intl.cloud.tencent.com
+0.0.0.1 intl.mtp.tencent.com
+0.0.0.1 mtp@tencent.com
 
-#IPv4
+## IPv4 ##
 127.0.0.53 activision.com
 127.0.0.53 codm.garena.com
 127.0.0.53 codm.garena.tw
@@ -24665,25 +24665,25 @@ RecordDnsCODGlobal
 127.0.0.53 actencent.com
 127.0.0.53 gstatic.com
 
-#ScanningDomainGarena
+## ScanningDomainGarena ##
 127.0.0.53 sg.tdatamaster.com
 127.0.0.53 lobbysg1.codm.garena.com
 127.0.0.53 t.appsflyer.com
-###Domain Block Login Garena : 100082.connect.garena.com###
+### Domain Block Login Garena : 100082.connect.garena.com ###
 127.0.0.53 csoversea.mbgame.gamesafe.qq.com
-###Domain Block Update + Block Login : dlmobilegarena-a.akamaihd.net###
+### Domain Block Update + Block Login : dlmobilegarena-a.akamaihd.net ###
 127.0.0.53 vmp.qq.com
 127.0.0.53 dlied1.qq.com
 127.0.0.53 cloudctrl.codm.activision.com
 127.0.0.53 android.bugly.qq.com
 127.0.0.53 events.appsflyer.com
-###Domain Block Login Garena : connect.garenanow.com###
+### Domain Block Login Garena : connect.garenanow.com ###
 127.0.0.53 sg.tdm.qq.com
 127.0.0.53 receiver.sg.tdm.qq.com
 127.0.0.53 speed.codm.garena.com
 127.0.0.53 cloud2.gsdk.proximabeta.com
 127.0.0.53 qos.hk.gcloudcs.com
-###Domain Block Login Guest : sg.itopsdk.com####
+### Domain Block Login Guest : sg.itopsdk.com ####
 127.0.0.53 cdn.wetest.qq.com
 127.0.0.53 speed.codm.garena.tw
 127.0.0.53 codm.garena.tw
@@ -24698,7 +24698,7 @@ RecordDnsCODGlobal
 127.0.0.53 .dynamic.tfn.net.tw
 127.0.0.53 codm.garena.tw
 
-#ScanningDomainGlobal
+## ScanningDomainGlobal ##
 127.0.0.53 inapps.appsflyer.com 
 127.0.0.53 west-tdm.codmwest.com 
 127.0.0.53 west-cloudctrl.codm.activision.com 
@@ -24756,10 +24756,10 @@ RecordDnsCODGlobal
 127.0.0.53 119.28.248.218
 127.0.0.53 astat.bugly.qcloud.com
 127.0.0.53 speedtest.gem.codmwest.com
-###Domain Block Login Activision : activision.itopsdk.com###
+### Domain Block Login Activision : activision.itopsdk.com ###
 127.0.0.53 in.west-gvoice.codmwest.com
 127.0.0.53 49.51.233.81
-###Domain Block Update + Block Login : cdn-1302064167.file.myqcloud.com###
+### Domain Block Update + Block Login : cdn-1302064167.file.myqcloud.com ###
 127.0.0.53 20.46.148.92
 127.0.0.53 20.46.146.206
 127.0.0.53 150.109.197.17
@@ -24778,7 +24778,7 @@ RecordDnsCODGlobal
 127.0.0.53 49.51.67.202
 127.0.0.53 211.152.146.61
 
-#BypassInti1
+## BypassInti1 ##
 
 203.205.137.113 codindo.com
 
@@ -26819,7 +26819,7 @@ RecordDnsCODGlobal
 127.0.0.53 2402:4e00:8020:2::90
 127.0.0.53 2402:4e00:8020:2::9
 
-#BypassInti
+## BypassInti ##
 127.0.0.53 mtp.qq.com
 127.0.0.53 intl.mtp.qq.com
 127.0.0.53 cloud.mtp.qq.com
@@ -27040,7 +27040,7 @@ RecordDnsCODGlobal
 127.0.0.53 ig-us-notice.igamecj.com
 127.0.0.53 ig-us-notice.igamecj.com:443 
 
-#Remove3rdParty
+## Remove3rdParty ##
 127.0.0.53 apse.s.ludashi.com
 127.0.0.53 159.138.83.161
 127.0.0.53 159.138.87.123
@@ -27169,7 +27169,7 @@ RecordDnsCODGlobal
 127.0.0.53 mobile-gtalk.l.google.com
 
 
-###  Bypass COD  ###
+###  Bypass CODM  ###
 127.0.0.53 localhost                        
 127.0.0.53 localhost.localdomain
 127.0.0.53 local
@@ -27185,7 +27185,7 @@ ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 127.0.0.53 127.0.0.53
 
-#DnsTencent
+## DnsTencent ##
 127.0.0.53 117.169.101.44
 127.0.0.53 59.49.91.119
 127.0.0.53 112.25.105.32
@@ -27197,10 +27197,10 @@ ff02::3 ip6-allhosts
 127.0.0.53 125.39.52.26
 127.0.0.53 58.247.214.47
 127.0.0.53 58.250.137.36
-#DnsProximabeta
+## DnsProximabeta ##
 127.0.0.53 79.124.78.105
 127.0.0.53 79.124.78.101
-#RecordDNSPubgm
+## RecordDNSPubgm ##
 127.0.0.53 119.28.109.187
 127.0.0.53 119.28.109.105
 127.0.0.53 150.109.27.214
@@ -27218,12 +27218,12 @@ ff02::3 ip6-allhosts
 127.0.0.53 185.151.204.14
 127.0.0.53 49.51.67.217
 
-#IntlMtp
-127.0.0.53 intl.cloud.tencent.com
-127.0.0.53 intl.mtp.tencent.com
-127.0.0.53 mtp@tencent.com
+## IntlMtp ##
+0.0.0.1 intl.cloud.tencent.com
+0.0.0.1 intl.mtp.tencent.com
+0.0.0.1 mtp@tencent.com
 
-#IPv4
+## IPv4 ##
 127.0.0.53 weiyun.com
 127.0.0.53 myapp.com
 127.0.0.53 qmail.com
